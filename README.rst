@@ -4,7 +4,7 @@
    :target: https://travis-ci.org/lsst/lse-389
 
 #################################
-Commissioning Science Validation Plan
+Commissioning Science Validation Test Plan
 #################################
 
 LSE-389
