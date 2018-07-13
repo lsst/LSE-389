@@ -1,0 +1,274 @@
+\documentclass[DM,lsstdraft,toc]{lsstdoc}
+
+% lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
+
+% Package imports go here.
+
+% Local commands go here.
+
+% To add a short-form title:
+% \title[Short title]{Title}
+\title{Commissioning Science Validation Test Plan}
+
+% Optional subtitle
+% \setDocSubtitle{A subtitle}
+
+\author{%
+Keith Bechtol
+}
+
+\setDocRef{LSE-389}
+
+\date{\today}
+
+% Optional: name of the document's curator
+% \setDocCurator{The Curator of this Document}
+
+\setDocAbstract{%
+Abstract text.
+}
+
+% Change history defined here.
+% Order: oldest first.
+% Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
+% See LPM-51 for version number policy.
+\setDocChangeRecord{%
+  \addtohist{1}{YYY-MM-DD}{Unreleased.}{Keith Bechtol}
+}
+
+\begin{document}
+
+% Create the title page.
+% Table of contents is added automatically with the "toc" class option.
+\maketitle
+
+% ADD CONTENT HERE
+
+\section{Introduction}
+
+This document provides an overview on the approach that will be used to verify, validate, and characterize the high-level scientific performance of the as-built LSST system during commissioning. 
+The emphasis here is on enumerating the tasks to be undertaken by the commissioning science validation team, identifying the roles and responsibilities of the members of that team, and recognizing the interfaces with other aspects of the Project.
+This document is similar to the \emph{Data Management Test Plan} \citeds{LDM-503}, and extends the planning of science validation efforts through the commissioning phase, focusing on the collection and analysis of on-sky data.
+
+See also \citeds{LDM-639}.
+
+We introduce a few over-arching concepts below.
+
+\subsection{Objectives}
+
+The primary purpose of this document is to outline the scope of work for commissioning science validation at a sufficient level of detail to facilitate the coordination of activity across the commissioning team.
+The commissioning science validation team includes individuals drawing expertise from each of the subsystems that we want to use as effectively as possible.
+Our objective is to identify discrete units of work that can then be associated with individuals or small teams in order to efficiently make progress on multiple fronts.
+
+%associate specific individuals with specific tasks.
+%Individuals drawing expertise from each of the subsystems will work together as a single commissioning science validation team --- this document is intended to facilitate the coordination of that activity.
+%This document is intended to be an overview rather than a detailed prescription of 
+%This document will be supplemented by 
+%For each of the activities appearing below, we will describe the activity 
+
+%\subsection{Inputs from the Subsystems}
+
+%\subsection{Operational Roles to Support On-Sky Observations}
+
+%This is a section to coordinate with Chuck.
+
+%During the three planned sustained on-sky observing periods of commissioning, the observatory will be operating in a mode similar to early operations in order to collect and process bulk data.
+%It is helpful to define a few key operation roles needed to support these on-sky observations.
+
+%\begin{enumerate}
+
+%\item Observatory Run Manager: the person on site responsible to decision
+
+%\item Observatory Safety Person: 
+
+%\item Telescope Operators:
+
+%\item Camera Operators:
+
+%\item Scheduler Scientist: The scheduler scientist takes the lead role in technical implementation of the on-sky observations during commissioning. The scheduler scientist monitors the progress of on-sky observing campaigns.
+
+%\item Data Facility Run Manager: The data facility run manager is the person responsible for monitoring data processing at the data facility at NCSA.
+
+%\end{enumerate}
+
+\subsection{Contexts for Evaluating Performance Metrics}
+
+High-level system performance will be measured in a variety of contexts during commissioning, ranging from individual visits to 
+
+\subsubsection{Single-Visit Performance Tracking}
+
+We want some quality assessment of every science image acquired during commissioning. 
+I envision that this functionality will persist into Science Operations.
+We probably want a rapid assessment to support commissioning activities, but longer term, I think we want something that runs as part of the prompt processing pipeline and/DRP when we go back and reprocess all the individual visits.
+From an operational standpoint, we think of these metrics as monitoring the realtime health of the system. 
+Longer term, these metrics will allow us to examine the distribution of performance at the single-visit level and look for correlations with hardware/software configurations and environmental conditions.
+
+\subsubsection{On-sky Continuous Integration Dataset}
+
+I image this as a small static dataset or collection small static datasets that is regularly reprocessed with the latest version of the science pipelines.
+The main purpose of these datasets is to monitor performance with respect to changes in the science pipelines as we process through commissioning and into science operations. 
+The purpose is similar to the \texttt{ci\_hsc} dataset, but for actual on-sky LSST images.
+
+Need some thought about what would be the most appropriate dataset(s) for this purpose, which may evolve (or at least expanded upon) during commissioning.
+
+\subsubsection{Large-Scale Analysis}
+
+We will identify specific milestones during commissioning to (re-)process larger volumes of data through the Science Pipelines in order to provide our best current assessment of the distribution of system performance.
+
+\section{Roles and Responsibilities}
+
+As described in \emph{System AI\&T and Commissioning Plan} \citeds{LDM-503}, the commissioning science validation team reports to the Commissioning Manager and Commissioning Deputy Manager.
+The commissioning manager and deputy manager are responsible for the overall commissioning effort, including planning, prioritizing, coordinating the day-to-day commissioning activities, and functional supervision of assigned staff.
+The commissioning manager leads the monthly work planning meeting.
+
+\subsection{Commissioning Science Validation Lead}
+
+Roles: coordinates the commissioning science validation effort.
+
+Responsibilities:
+
+\subsection{Commissioning Science Validation CPP, AP, and DRP Leads}
+
+Roles: three separate roles for the CPP, AP, and DRP pipelines, respectively.
+
+Responsibilities:
+
+\subsection{Observatory Run Manager}
+
+Roles: Envisioned to be a rotating role 
+
+Responsibilities:
+
+\subsection{Commissioning Scheduler Scientist}
+
+Roles:
+
+Responsibilities: 
+
+\subsection{Data Facility Run Manager}
+
+Roles: data wrangler.
+
+Responsibilities:
+
+\subsection{Members of DM Construction Team Assigned to Commissioning SV}
+
+Roles:
+
+Responsibilities:
+
+\section{Preparation Leading up to First On-sky Images}
+
+\subsection{Quality Assessment Frameworks}
+
+Contacts: Simon Krughoff, Angelo Fausti, others
+
+This task begins a decision regarding the quality assessment framework(s) that will be used. 
+
+\subsection{Implement and Test SRD Metric Calculations}
+
+This task is to work out the details of how we will interpret, compute, and present the SRD metrics for on-sky data.
+Considerable thought has already been put into many of the SRD metrics, e.g., in \texttt{validate\_drp}.
+
+\subsection{Implement Rapid Automated Data Quality Assessment for Individual Images/Visits}
+
+Contacts: Tony Johnson, Stuart Marshall, Steve Ritz, Eric Bellm (?)
+
+Online prompt products processing is not scheduled to be available until partway through the LSSTCam AI\&T. 
+We probably want 
+
+\subsection{Notebooks as Documentation}
+
+\subsection{Identify and Curate External Reference Datasets}
+
+\subsection{Define Additional SRD-Motivated Analyses}
+
+\subsection{Test Interactions with Environmental Facilities Database}
+
+EFD. Transformed EFD. Simon Krughoff.
+
+\subsection{Observing Control Scripts and Survey Tactitians}
+
+Contacts: Tiago, Tim Jeness
+
+OCS. 
+
+\subsection{End-to-end Data Access Test with Test Stand and AuxTel}
+
+Contacts: Margaret
+
+\subsection{Image Visualization Tools}
+
+Contacts:
+
+We want the capability to quickly scan many images, i.e., the eyeball checkers.
+
+\section{Reverifying Science Pipelines Components}
+
+\section{SRD Test Plan}
+
+For each metric, what is the earliest stage that we will have a useful dataset to test.
+
+\subsection{Single-Visit}
+
+\subsection{Full Survey Performance}
+
+\section{Null Tests}
+
+Which ones fall out automatically?
+
+Which require specific observations?
+
+\section{Additional SRD-Motivated Analyses}
+
+\subsection{Alert Production}
+
+\subsection{Data Release Production}
+
+\section{Data Collection Campaigns}
+
+For each on-sky observing campaign, include the expected total number of visits and the science pipelines that we expect to run (and whether they will be run in on-line mode).
+
+\subsection{ComCam Early AI\&T}
+
+\subsection{ComCam AI\&T KPMs}
+
+\subsection{ComCam AI\&T 20-year Depth Tests}
+
+\subsection{LSSTCam Early AI\&T}
+
+\subsection{LSSTCam AI\&T KPMs}
+
+\subsection{LSSTCam AI\&T 20-year Depth Tests}
+
+\subsection{Science Validation Survey 1: Template Generation and Alert Production}
+
+\subsection{Science Validation Survey 2: 10-year Depth}
+
+\section{Documenting System Performance}
+
+Documenting the distribution of delivered performance of the as-built system is part of the work of the commissioning science validation team, though we should be careful to limit the scope to something manageable.
+We should plan for this work in advance to have an estimate for the required resources.
+
+\subsection{Documentation for the Operations Team}
+
+\subsubsection{Operators Manual}
+
+Whose deliverable is this?
+
+\subsubsection{Characterizing Normal System Performance}
+
+\subsection{Operations Readiness Review}
+
+It seems that the main emphasis should be placed on the formal requirements.
+
+\subsection{Journal Publications}
+
+Link to confluence page.
+
+
+% Include all the relevant bib files.
+% https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
+\bibliography{lsst,lsst-dm,refs_ads,refs,books}
+
+\end{document}
